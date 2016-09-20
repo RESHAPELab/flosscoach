@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160823212618) do
+ActiveRecord::Schema.define(version: 20160920224608) do
 
   create_table "languages", force: :cascade do |t|
     t.string   "name"
@@ -70,13 +70,16 @@ ActiveRecord::Schema.define(version: 20160823212618) do
     t.string   "email"
     t.string   "username"
     t.string   "encrypted_password"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.string   "photo_url"
     t.string   "fb_token"
     t.string   "provider"
     t.string   "uid"
     t.string   "description"
+    t.text     "programming_language"
+    t.text     "operational_systems"
+    t.text     "contributed_projects"
   end
 
   create_table "widgets", force: :cascade do |t|

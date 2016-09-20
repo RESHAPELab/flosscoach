@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
 	validates_length_of :password, minimum: 6, :if => :password
 	validates_confirmation_of :password, :if => :password
 	validates_acceptance_of :terms
+	validates :programming_language, length: { maximum: 70 }
+	validates :operational_systems, length: { maximum: 70 }
+	validates :contributed_projects, length: { maximum: 70 }
 
 	def password=(new_password)
 		@password = new_password
