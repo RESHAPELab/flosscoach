@@ -5,11 +5,15 @@ class ProjectsController < ApplicationController
 
   # GET /projects
   def index
-    @projects = Project.all.search(params[:search])
+    @projects = Project.search(params[:search])
     if current_user
-      @myproject = current_user.projects.build
+      myadmin = ProjectAdmin.where(:user => current_user)
+      @myproject = Project.new
+      if myadmin
+        @myproject.id = myadmin.project
+      end
     else
-      @myproject = Project.all.search("nenhum")
+      @myproject = Project.search("nenhum")
     end
   end
 
@@ -23,7 +27,11 @@ class ProjectsController < ApplicationController
 
   # GET /projects/new
   def new
-    @project = current_user.projects.build
+    @project = Project.new
+    project_admin = ProjectAdmin.new
+    project_admin.user_id = current_user.id
+    project_admin.project_id = @project.id
+    project_admin.save
     @languages = Language.all
     @tools = Tool.all
     @operationalsystems = OperationalSystem.all
@@ -31,15 +39,38 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1/edit
   def edit
+    ProjectAdmin.where(:user => current_user, :project => @project)
+    redirect_to project_path(:id => @project.id) if projadmin?
     @codigourl = params[:id]
     @language = Language.where(:id => @project.language_id).first
     @tool = Tool.where(:id => @project.tool_id).first
     @operationalsystem = OperationalSystem.where(:id => @project.operational_system_id).first
   end
 
+	def create_project_admin(current_user, project)
+		project_admin = ProjectAdmin.new
+    project_admin.user_id = current_user.id
+    project_admin.project_id = project.id
+    project_admin.save
+	end
+
   # POST /projects
   def create
     @project = Project.new(project_params)
+    @project.save
+		create_project_admin(current_user, @project)
+    if params[:openhub_check] #Se a flag pra capturar dados do openhyb estiver ativa
+      ohp = OpenHubProject.find_by_name(@project.name).first
+      @project.about = "#{ohp.description} <br>
+                       <iframe src='https://www.openhub.net/p/#{ohp.vanity_url}/widgets/project_factoids_stats'
+                       scrolling='no' marginheight='0' marginwidth='0'
+                       style='height: 220px; width: 370px; border: none'></iframe>"
+      @project.image_url = ohp.medium_logo_url
+      @project.link =  "OpenHub URL: <a href='#{ohp.html_url}'>#{ohp.html_url}</a><br>
+                        Homepage Url: <a href='#{ohp.homepage_url}'>#{ohp.homepage_url}</a><br>
+                        Download URL: <a href='#{ohp.download_url}'>#{ohp.download_url}</a>"
+    end
+    @project.image_url ||= "assets/placeholder.png"
 
     ohp = OpenHubProject.find_by_name(@project.name).first if params[:openhub_check]
     @project.image_url = ohp.medium_logo_url if ohp else "/assets/placeholder.png"
@@ -75,6 +106,11 @@ class ProjectsController < ApplicationController
     redirect_to projects_url, notice: 'Project was successfully destroyed.'
   end
 
+  def projadmin?
+    projadmin = ProjectAdmin.find_by(:user => current_user, :project => @project)
+    projadmin == nil
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -103,7 +139,7 @@ class ProjectsController < ApplicationController
       if(ohp)
         widgets << make_widget_about("#{ohp.description} <br>
                          <iframe src='https://www.openhub.net/p/#{ohp.vanity_url}/widgets/
-                         project_factoids_stats' scrolling='no' marginheight='0' marginwidth='0' 
+                         project_factoids_stats' scrolling='no' marginheight='0' marginwidth='0'
                          style='height: 220px; width: 370px; border: none'></iframe>")
         widgets << make_widget_links("OpenHub URL: <a href='#{ohp.html_url}'>#{ohp.html_url}</a><br>
                           Homepage Url: <a href='#{ohp.homepage_url}'>#{ohp.homepage_url}</a><br>
@@ -123,7 +159,7 @@ class ProjectsController < ApplicationController
 
       widgets
     end
-      
+
 
     #Auto builds for widgets
     def make_widget_about(pre_content = "Fill with text")
