@@ -15,7 +15,7 @@
                   <i class="icon wb-pencil" aria-hidden="true"></i>
                 </h4>
                 <p class="editable" >
-                <span class='description' data-plugin="summernote" data-air-mode="true"> <%= @user.description.blank? ? "Insert a description" : @user.description %></span>
+                <span class='description' data-plugin="summernote" data-air-mode="true"> <%= @user.description.blank? ? t('Insert a description') : @user.description %></span>
                                   <i class="icon wb-pencil" aria-hidden="true"></i></p>
                 <div class="profile-social">
                   <a class="icon bd-twitter" href="#LINK-TWITTER"></a>
@@ -29,7 +29,7 @@
               <div class="row no-space">
                 <div class="col-xs-12">
                   <strong class="profile-stat-count"><%= @user.projects.size %></strong>
-                  <span>Projects created</span>
+                  <span><%=t('Projects created') %></span>
                 </div>
 
               </div>
@@ -43,20 +43,20 @@
             <div class="panel-body nav-tabs-animate nav-tabs-horizontal">
               <ul class="nav nav-tabs nav-tabs-line" data-plugin="nav-tabs" role="tablist">
                 <li class="active" role="presentation"><a data-toggle="tab" href="#recent-activities" aria-controls="recent-activities"
-                  role="tab">Recent activities <span class="badge badge-danger">5</span></a></li>
-                <li role="presentation"><a data-toggle="tab" href="#activities-your-projects" aria-controls="activities-your-projects" role="tab">Activities in your projects </a></li>
+                  role="tab"><%=t('Recent activities') %> <span class="badge badge-danger">5</span></a></li>
+                <li role="presentation"><a data-toggle="tab" href="#activities-your-projects" aria-controls="activities-your-projects" role="tab"><%=t('Activities in your projects') %> </a></li>
                 <li role="presentation"><a data-toggle="tab" href="#your-projects" aria-controls="your-projects"
-                  role="tab">Your projects </a></li>
+                  role="tab"><%=t('Your projects') %> </a></li>
                 <li class="dropdown" role="presentation" style="display: none;">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                     <span class="caret"></span>Menu </a>
                   <ul class="dropdown-menu" role="menu">
                     <li role="presentation" style="display: none;"><a data-toggle="tab" href="#recent-activities" aria-controls="recent-activities"
-                      role="tab">Recent activities <span class="badge label-danger">5</span></a></li>
+                      role="tab"><%=t('Recent activities') %> <span class="badge label-danger">5</span></a></li>
                     <li role="presentation" style="display: none;"><a data-toggle="tab" href="#activities-your-projects" aria-controls="activities-your-projects"
-                      role="tab">Activities in your projects</a></li>
+                      role="tab"><%=t('Activities in your projects') %></a></li>
                     <li role="presentation"><a data-toggle="tab" href="#your-projets" aria-controls="your-projects"
-                      role="tab">Your projects</a></li>
+                      role="tab"><%=t('Your projects') %></a></li>
                   </ul>
                 </li>
               </ul>
@@ -72,7 +72,7 @@
                         </div>
                         <div class="media-body">
                           <h4 class="media-heading">Você mesmo
-                            <span>posted an updated</span>
+                            <span><%=t('posted an updated') %></span>
                           </h4>
                           <small>14 minutes ago</small>
                           <div class="profile-brief">Commit in #98t90r809t80ew8t. Please check it.</div>
@@ -89,18 +89,18 @@
                         </div>
                         <div class="media-body">
                           <h4 class="media-heading">Seu irmão gêmeo
-                            <span>posted an new activity comment</span>
+                            <span><%=t('posted an new activity comment') %></span>
                           </h4>
-                          <small>active 14 minutes ago</small>
+                          <small><%=t('active 14 minutes ago') %></small>
                           <div class="profile-brief">Cras sit amet nibh libero, in gravida nulla. Nulla vel
                             metus.</div>
                         </div>
                       </div>
                     </li>
-       
+
                   </ul>
                   <a class="btn btn-block btn-default profile-readMore" href="javascript:void(0)"
-                  role="button">Show more</a>
+                  role="button"> <%= t('Show more') %> </a>
                 </div>
                 <div class="tab-pane animation-slide-left" id="activities-your-projects" role="tabpanel">
                   <ul class="list-group">
@@ -169,7 +169,7 @@
                 <h4>Você não tem projetos cadastrados.</h4>
 
                 <% end %>
-        
+
                   </ul>
                 </div>
               </div>
