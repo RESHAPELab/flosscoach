@@ -21,3 +21,11 @@
 
 en:
   hello: "Hello world"
+  Sign In: "Sign In"
+  Email: "Email"
+  Password: "Password"
+  FLOSS Coach creators are researchers who want to help newcomers to Free/Libre Open Source Software (FLOSS): "FLOSS Coach creators are researchers who want to help newcomers to Free/Libre Open Source Software (FLOSS)"
+  Have you ever thought about contributing to an Open Source Project: "Have you ever thought about contributing to an Open Source Project"
+  Have you tried: "Have you tried"
+  Was it too hard: "Was it too hard"
+  no login needed: "no login needed"

@@ -6,18 +6,18 @@
         <h2 class="brand-text font-size-40">FLOSS Coach</h2>
       </div>
       <p class="font-size-20">
-        FLOSS Coach creators are researchers who want to help newcomers to Free/Libre Open Source Software (FLOSS)
-        Have you ever thought about contributing to an Open Source Project? Have you tried? Was it too hard?
+				<%= t('FLOSS Coach creators are researchers who want to help newcomers to Free/Libre Open Source Software (FLOSS)') %>
+				<%= t('Have you ever thought about contributing to an Open Source Project') ++ "? " ++ t('Have you tried') ++ "? " ++ t('Was it too hard') ++ "?" %>
       </p>
 
       <p class="font-size-20">
-        <a href="/projects">Explore projects on Flosscoach.com (no login needed)</a>
+        <a href="/projects"> <%= t('Explore projects on') ++ " Flosscoach.com (" ++ t('no login needed') ++ ")"%></a>
       </p>
     </div>
 
     <div class="page-login-main">
-      <h3 class="font-size-24">Sign In</h3>
-      <p>Please, visit us! Check our prototype and give us your feedback</p>
+      <h3 class="font-size-24"><%= t('Sign In')%></h3>
+      <p><%= t('Please, visit us! Check our prototype and give us your feedback') %></p>
 
       <%= form_for(User.new, url: users_login_path) do |f| %>
         <% if alert %>
@@ -25,7 +25,7 @@
             <button type="button" class="close" aria-label="Close" data-dismiss="alert">
               <span aria-hidden="true">×</span>
             </button>
-            <p><%= alert %></p>
+            <p><%= t('alert') %></p>
           </div>
         <% end %>
        <% if notice %>
@@ -33,25 +33,25 @@
             <button type="button" class="close" aria-label="Close" data-dismiss="alert">
               <span aria-hidden="true">×</span>
             </button>
-            <p><%= notice %></p>
+            <p><%= t('notice') %></p>
           </div>
         <% end %>
         <div class="form-group">
-          <label class="sr-only" for="user_email">Email</label>
-          <input type="email" class="form-control" id="user_email" name="user[email]" placeholder="Email">
+          <label class="sr-only" for="user_email"> <%= t('Email') %> </label>
+          <input type="email" class="form-control" id="user_email" name="user[email]" placeholder=<%= t('Email') %> >
         </div>
 
         <div class="form-group">
-          <label class="sr-only" for="user_password">Password</label>
-          <input type="password" class="form-control" id="user_password" name="user[password]" placeholder="Password">
+          <label class="sr-only" for="user_password"> <%= t('Password') %> </label>
+          <input type="password" class="form-control" id="user_password" name="user[password]" placeholder=<%= t('Password') %>>
         </div>
 
-        <%= f.submit 'Sign In', class: 'btn btn-primary btn-block' %>
+        <%= f.submit t('Sign In'), class: 'btn btn-primary btn-block' %>
 
       <% end %>
 
       <div class='social-login'>
-        <h4>or login with...</h4>
+        <h4><%= t('or login with')%>...</h4>
         <%= link_to "/auth/facebook" do %>
           <button type="button" class="btn  btn-labeled social-facebook ">
             <span class="btn-label"><i class="icon bd-facebook" aria-hidden="true"></i></span> Facebook
@@ -73,11 +73,11 @@
 
       <hr>
 
-      <p>Haven't an account yet? Please, <%= link_to 'Sign Up', new_user_path %>!</p>
+      <p><%= t('Haven\'t an account yet') ++ "? " ++ t('Please') ++ ", " %> <%= link_to t('Sign Up'), new_user_path %>!</p>
         <footer>
           <p align="Right"> <a href="?locale=pt-BR">Br</a> <a href="?locale=en">En</a>
         </footer>
-        
+
     </div>
   </div>
 </div>

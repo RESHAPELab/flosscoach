@@ -1,8 +1,26 @@
 pt-BR:
-  
+
   # _navigation.html
   Projects: "Projetos"
   Profile: "Perfil"
   Settings: "Configurações"
   Logout: "Sair"
   Search: "Pesquisar..."
+
+  # user/new.html.erb
+  FLOSS Coach creators are researchers who want to help newcomers to Free/Libre Open Source Software (FLOSS): "Os criadores de FLOSS Coach são pesquisadores que querem ajudar novos contribuintes para Software Livre e de Código Aberto (FLOSS)."
+  Have you ever thought about contributing to an Open Source Project: "Já pensou que contribuir para um projeto de código aberto"
+  Have you tried: "Já tentou"
+  Was it too hard: "Foi muito difícil"
+  Explore projects on: "Explore projetos no"
+  no login needed: "não necessita de cadastro"
+  Sign In: "Entre"
+  Sign Up: "Cadastre-se"
+  Please, visit us! Check our prototype and give us your feedback: "Por favor, visite-nos! Confira nosso protótipo e nos dê sua opinião"
+  alert: "alerta"
+  notice: "notícia"
+  or login with: "ou entre com"
+  Haven't an account yet: "Ainda não possui uma conta"
+  Please: "Por favor"
+  Email: "E-mail"
+  Password: "Senha"
