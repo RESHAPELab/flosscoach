@@ -24,4 +24,7 @@ We recommend using [Rails-Style-Guide](https://github.com/rubocop-hq/rails-style
 ## Contribute
 Want to contribute and not sure how to start? Here's our documentation for [contributions](https://github.com/flosscoach/flosscoach/blob/master/contribute.md).
 
+## newcomers
+newcomers welcome.
+
 We are happy to welcome new contributors. 
