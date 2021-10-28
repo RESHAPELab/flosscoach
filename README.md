@@ -6,8 +6,7 @@ about existing projects in a standardized way, making it easier for newcomer to 
 
 FLOSSCoach portal has individual project pages, foruns and messages where you can exchange relevant information about OSS with newcomers so they can start contributing
 
-You can use FLOSScoach by accessing [www.flosscoach.com](http://www.flosscoach.com): create an account and join our community! Contact us for help!
-
+FLOSScoach is currently not hosted anywhere. Please check back soon for news.
 
 # IMPORTANT:
 ***This is just a mirror*** The active repositories is hosted by GitLab: https://gitlab.com/flosscoach/flosscoach
