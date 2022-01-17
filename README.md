@@ -10,4 +10,4 @@ You can use FLOSScoach by accessing [www.flosscoach.com](http://www.flosscoach.c
 
 
 # IMPORTANT:
-***This is just a mirror*** The active repositories is hosted by GitLab: https://gitlab.com/flosscoach/flosscoach
+***This is just a mirror***. The active repositories is hosted by GitLab: https://gitlab.com/flosscoach/flosscoach
